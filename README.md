@@ -1,0 +1,1 @@
+This is the repo for the practical lab in the introduction to differentiable optimization course.
