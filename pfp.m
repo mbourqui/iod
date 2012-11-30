@@ -13,17 +13,18 @@ function x = pfp(f, x0, epsilon)
 
     beta1 = 0.5;
     beta2 = 0.75;
-    lambda = 0.6;
+    lambda = 2;
 
     iteration = 1;
     [~, gfx] = feval(f, x);
     while abs(gfx) > epsilon
         fprintf('Iteration number %d : x = [%f, %f]\n', iteration, x(1), x(2));
         
-    [~, gfx] = feval(f, x);
     d = -gfx;
     alpha = rl(f, x, d, alpha, beta1, beta2, lambda);
     x = x + alpha * d;
+        [~, gfx] = feval(f, x);
+        
     iteration = iteration + 1;
 
 % (b) Implementer une fonction qui donne la taille du pas suivant:
