@@ -9,21 +9,17 @@ function alpha = rl(f, x, d, alpha0, beta1, beta2, lambda)
     
     while (fxad > fx + alpha * beta1 * fgx' * d) || (fgxad' * d < beta2 * fgx' * d)
         if fxad > fx + alpha * beta1 * fgx' * d 
-            alphar = alpha
+            alphar = alpha;
             alpha = (alphal + alphar)/2;
         elseif fgxad' * d < beta2 * fgx' * d
-            alphal = alpha
+            alphal = alpha;
             if alphar < inf
-                alphal
-                alphar
-                alpha = (alphal + alphar)/2
+                alpha = (alphal + alphar)/2;
             else
-                123
-                alpha = lambda * alpha
+                alpha = lambda * alpha;
             end
         end
         
-        [fxad, fgxad] = feval(f, x + alpha * d);
-        
+        [fxad, fgxad] = feval(f, x + alpha * d);        
     end
 end   

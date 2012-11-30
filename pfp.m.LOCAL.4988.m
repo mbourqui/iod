@@ -10,11 +10,6 @@ function x = pfp(f, x0, epsilon)
     [~, gfx] = feval(f, x);
     while abs(gfx) > epsilon
         fprintf('Iteration number %d : x = [%f, %f]\n', iteration, x(1), x(2));
-% (c) Comparer le comportement de l'algorithme en utilisant les pas (a) et
-% (b)
-
-% (d) Comparer la methode de plus forte pente et la methode quasi-Newton
-% (qui est deja implementee - Serie 3).
         
         [~, gfx] = feval(f, x);
         d = -gfx;
