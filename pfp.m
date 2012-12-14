@@ -12,7 +12,9 @@ function x = pfp(f, x0, epsilon)
         fprintf('Iteration number %d : x = [%f, %f]\n', iteration, x(1), x(2));
         
         d = -gfx;
-        alpha = rl(f, x, d, alpha, beta1, beta2, lambda);
+        %Soit on peut utiliser la fonction dans b) pour calculer le pas
+        alpha = tp(f,x);
+        %alpha = rl(f, x, d, alpha, beta1, beta2, lambda);
         x = x + alpha * d;
         [~, gfx] = feval(f, x);
         
