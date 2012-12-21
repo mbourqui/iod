@@ -5,20 +5,32 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{enumerate}
+
+\renewcommand{\thesection}{\arabic{section}}
+
 \title{Résolution d'un problème d'optimisation différentiable}
+
+
+
 \begin{document}
+
 \maketitle
-Énoncé du problème:
+
+\section*{Énoncé du problème}
 
 Trouver (une approximation de) la solution du problème suivant en appliquant le théorème de la plus forte pente:
 \begin{equation}
 \min_{x\in\mathbb{R}^2} (x_1-2)^4 + (x_1-2)^2x_2^2 + (x_2+1)^2
 \end{equation}
 
-Réponses aux questions:
+\section*{Réponses aux questions}
 
 \begin{enumerate}[(a)]
 \item\label{pfp} Implémenter la méthode de plus forte pente (Algorithme 11.3) à l'aide du logiciel MATLAB. Déterminer la taille du pas en appliquant la recherche linéaire, Algorithme 11.2 (les deux conditions de Wolfe).
+
+%
+% Mettre la réponse ici
+%
 
 \item\label{pas} Implémenter une fonction qui donne la taille du pas suivant:
 \begin{equation}
@@ -27,8 +39,21 @@ Réponses aux questions:
 
 Quelle est la nature de ce pas? D'où cette formule vient-elle?
 
+%
+% Mettre la réponse ici
+%
+
 \item Comparer le comportement de l'algorithme en utilisant les pas (\ref{pfp})\ et (\ref{pas}).
 
-\item Comparer la methode de plus forte pente et la methode quasi-Newton (qui est déjà implementée - Série 3).
+%
+% Mettre la réponse ici
+%
+
+\item Comparer la methode de plus forte pente et la methode quasi-Newton (qui est déjà implementée -- Série 3).
+
+%
+% Mettre la réponse ici
+%
+
 \end{enumerate}
 \end{document}
