@@ -1,14 +1,21 @@
 \documentclass[11pt,a4paper,twoside,onecolumn,titlepage]{report}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{ucs}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{enumerate}
+\usepackage{listings}
+\usepackage[numbered,autolinebreaks]{mcode}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
 
 \renewcommand{\thesection}{\arabic{section}}
 
 \title{Résolution d'un problème d'optimisation différentiable}
+\author{Marc BOURQUI, Victor CONSTANTIN, Ian SCHORI, Floriant SIMOND}
 
 
 
@@ -31,6 +38,9 @@ Trouver (une approximation de) la solution du problème suivant en appliquant le
 %
 % Mettre la réponse ici
 %
+\lstinputlisting[label=pfp.m, caption=pfp.m]{pfp.m} 
+
+\lstinputlisting[label=rl.m, caption=rl.m]{rl.m}
 
 \item\label{pas} Implémenter une fonction qui donne la taille du pas suivant:
 \begin{equation}
