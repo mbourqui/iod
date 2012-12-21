@@ -1,0 +1,34 @@
+\documentclass[11pt,a4paper,twoside,onecolumn,titlepage]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\title{Résolution d'un problème d'optimisation différentiable}
+\begin{document}
+\maketitle
+Énoncé du problème:
+
+Trouver (une approximation de) la solution du problème suivant en appliquant le théorème de la plus forte pente:
+\begin{equation}
+\min_{x\in\mathbb{R}^2} (x_1-2)^4 + (x_1-2)^2x_2^2 + (x_2+1)^2
+\end{equation}
+
+Réponses aux questions:
+
+\begin{enumerate}[(a)]
+\item\label{pfp} Implémenter la méthode de plus forte pente (Algorithme 11.3) à l'aide du logiciel MATLAB. Déterminer la taille du pas en appliquant la recherche linéaire, Algorithme 11.2 (les deux conditions de Wolfe).
+
+\item\label{pas} Implémenter une fonction qui donne la taille du pas suivant:
+\begin{equation}
+\alpha_k = \frac{\bigtriangledown f(x_k)^T \bigtriangledown f(x_k)}{\bigtriangledown f(x_k)^T \bigtriangledown^2 f(x_k) \bigtriangledown f(x_k)}
+\end{equation}
+
+Quelle est la nature de ce pas? D'où cette formule vient-elle?
+
+\item Comparer le comportement de l'algorithme en utilisant les pas (\ref{pfp})\ et (\ref{pas}).
+
+\item Comparer la methode de plus forte pente et la methode quasi-Newton (qui est déjà implementée - Série 3).
+\end{enumerate}
+\end{document}
