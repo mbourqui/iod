@@ -8,3 +8,6 @@ Le rapport a rendre pour le 11 janvier 2013 doit contenir:
  - Les résultats
 
 Longueur < 10 pages.
+
+Analyse de performance:
+Voir dans "Introduction à l'optimisation différentiable", Annexe C.2

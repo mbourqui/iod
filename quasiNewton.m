@@ -7,8 +7,11 @@
 % TRANSP-OR Octobre 2012		                          % 
 %  					                  % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
- 
-clear; % n�cessaire pour l''interface graphique
+
+function x = quasiNewton(f, x0)
+
+%clear; % n�cessaire pour l''interface graphique
+
  
 %%%%%%%%%%%%%%%% 
 % Interface    %	         		
@@ -17,11 +20,13 @@ clear; % n�cessaire pour l''interface graphique
 % nom de la fonction � minimiser, qui est sp�cifi�e dans le fichier 'f1.m'  
 % et qui est d�clar�e sous forme de string
 
-fct = 'f' ; 
+%fct = 'f' ; 
+fct = f;
  
 % point initial 
 
-x = feval('x') ; 
+%x = feval('x') ; 
+x = x0;
  
 %%%%%%%%%%%%%%%%%%
 % Parametres     %		   
@@ -124,9 +129,9 @@ disp('*****************************************')
     
 visual3d(fct, stock, valeurstock); 
      
-clear; 
+%clear; 
  
 % sprintf('Nombre de fois que la boucle a �t� parcourue : %d',i)                    
 
-
+end
 

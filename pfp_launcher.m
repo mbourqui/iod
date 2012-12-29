@@ -6,7 +6,7 @@
 % noms				          % 
 %  					                                      % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-function x = pfp_launcher(x0, alpha)
+function x = pfp_launcher(f, x0, alpha)
  
 %clear; % necessaire pour l''interface graphique
  
@@ -16,10 +16,11 @@ function x = pfp_launcher(x0, alpha)
  
 % nom de la fonction a minimiser, qui est specifiee dans le fichier 'f.m'  
 % et qui est declaree sous forme de string
-fct = 'f' ; 
+%fct = 'f' ; 
+fct = f;
  
 % point initial 
-x = x0; 
+x = x0
  
 %%%%%%%%%%%%%%%%%%
 % Parametres     %		   
