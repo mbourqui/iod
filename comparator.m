@@ -1,7 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Compare les deux méthodes pour un jeu de données commun.		%
 %																%
-% (adapter pfp_launcher et optSerie en fonction de ce script)	%
 %																%
 % BOURQUI Marc													%	
 % CONSTANTIN Victor												%

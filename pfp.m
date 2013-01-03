@@ -10,7 +10,7 @@
 %  					                                      % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 function x = pfp(f, x0, alpha, useRL)
- 
+
 
 useRLInner = useRL;
 
@@ -39,7 +39,7 @@ i=1 ;
 % initialisation de la matrice qui stocke tous les iterés 
 % un iteré = une colonne de cette matrice
 
-stock(:,1) = x0; 
+stock(:,i) = x0; 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Boucle principale            % 
@@ -48,7 +48,7 @@ stock(:,1) = x0;
 
 % Critere d'arret: x a ateint la precision demandée OU nb iterations max ateint
 
-while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i < maxiter )
+while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i < maxIter )
 	% mise a jour du nombre d'iterations
 	i = i+1;
 
@@ -57,10 +57,10 @@ while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i < maxiter )
 
 end 
  
-% calcul la taille de la matrice contenant tous les x
+% Calcul de la taille de la matrice contenant tous les x
 taille = size(stock,2); 
      
-% evaluation de la fonction en chaque point    
+% Evaluation de la fonction en chaque point    
 for i=1:taille 
 	valeurstock(i)=feval(fct,stock(:,i)); 
 end 
