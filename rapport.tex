@@ -5,7 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{enumerate}
-\usepackage{listings}
+\usepackage{listingsutf8}
 \usepackage[numbered,autolinebreaks]{mcode}
 \usepackage{caption}
 \DeclareCaptionFont{white}{\color{white}}
@@ -13,6 +13,12 @@
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
 
 \renewcommand{\thesection}{\arabic{section}}
+
+\lstset{
+language=matlab,
+extendedchars=\true,
+inputencoding=utf8/latin1
+}
 
 \title{Résolution d'un problème d'optimisation différentiable}
 \author{Marc \textsc{Bourqui} \and Victor \textsc{Constantin} \and Ian \textsc{Schori} \and Floriant \textsc{Simond}}
