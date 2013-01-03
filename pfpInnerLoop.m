@@ -26,4 +26,5 @@ function x = pfpInnerLoop(f, x0, alpha, useRL)
         %Soit on peut utiliser la fonction dans b) pour calculer le pas
         alpha = tp(f,x);
     end
+    x = x + alpha * d;
 end

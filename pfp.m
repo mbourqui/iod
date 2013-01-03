@@ -49,9 +49,10 @@ while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i < maxIter )
 	% mise a jour du nombre d'iterations
 	i = i+1;
 	
-	fprintf('Iteration number %d : x = [%f, %f]\n', i, stock(:,i-1)(1), stock(:,i-1)(2));
+    prev = stock(:,i-1);
+	fprintf('Iteration number %d : x = [%f, %f]\n', i, prev(1), prev(2));
 	% calcul et stockage de la valeur du nouveau x   
-	stock(:,i) = pfpInnerLoop(fct, stock(:,i-1), alpha, useRL);
+	stock(:,i) = pfpInnerLoop(fct, prev, alpha, useRL);
 
 end 
  
