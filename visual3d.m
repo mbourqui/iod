@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ï»¿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Module graphique 3d pour une fonction quelconque
 %
@@ -50,15 +50,15 @@ nombrecourbe = 20;
 contour(X,Y,Z,nombrecourbe);
 
 
-% on peut à présent dessiner les itérés sur les courbe de niveaux
+% on peut Ã  prÃ©sent dessiner les itÃ©rÃ©s sur les courbe de niveaux
 hold on
-disp('Appuyer sur une touche afin de voir la suite des itérés sur les courbes de niveau.');
+disp('Appuyer sur une touche afin de voir la suite des itÃ©rÃ©s sur les courbes de niveau.');
 pause
 plot(stock(1,:),stock(2,:),'ko:');
 
 hold off;
 
-disp('Appuyer sur une touche afin de visualiser l''amélioration de la valeur de la fonction au cours de l''algorithme.');
+disp('Appuyer sur une touche afin de visualiser l''amÃ©lioration de la valeur de la fonction au cours de l''algorithme.');
 pause
 plot(valeurstock);
 % disp('Fin de la visualisation, appuyer sur une touche');

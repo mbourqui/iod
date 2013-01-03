@@ -1,4 +1,4 @@
-function h = bfgs(fonc,H,x,xold)
+﻿function h = bfgs(fonc,H,x,xold)
 
 s=x-xold;
 [a,b]=feval(fonc,x);

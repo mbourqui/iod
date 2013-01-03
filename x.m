@@ -1,7 +1,6 @@
-function [ x ] = x( row )
-%X Donne un vecteur x à deux dimensions. Indice 0 donne le nombre de paires
+﻿function [ x ] = x( row )
+%x : Donne un vecteur x à deux dimensions. Indice 0 donne le nombre de paires
 % disponibles.
-%   Detailed explanation goes here
 
 m(:,1) = [1;1];
 m(:,2) = [2; 4];
