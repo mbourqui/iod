@@ -9,7 +9,7 @@
 % SIMOND Floriant                                         %
 %                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function x = pfp(f, x0, epsilon, useRL, showDetails)
+function [x, fx, iterations] = pfp(f, x0, epsilon, useRL, showDetails)
 
 %%%%%%%%%%%%%%%% 
 % Interface    %
@@ -87,5 +87,9 @@ if showDetails
 end
 %sprintf('Nombre de fois que la boucle a ete parcourue : %d',i)                    
 
-clear;
+x = xOptim;
+fx = feval(fct,stock(:,i));
+iterations = i-1;
+
+%clear;
 end

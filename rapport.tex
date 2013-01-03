@@ -8,6 +8,8 @@
 \usepackage{listingsutf8}
 \usepackage[numbered,autolinebreaks]{mcode}
 \usepackage{caption}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
 \DeclareCaptionFont{white}{\color{white}}
 \DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
@@ -60,7 +62,7 @@ Pour \texttt{pfp.m}, nous avons réutilisé la structure du corrigé de la séri
 Effectue une itération de l'algorithme en utilisant la méthode de calcul du pas spécifiée. Le choix est effectué à l'aide du booléen \mcode{useRL} qui permet de choisir entre la recherche linéaire et la méthode indiquée au point (\ref{pas}).
 
 
-\lstinputlisting[label=rl.m, caption=rl.m]{rl.m}
+\lstinputlisting[label=rechercheLineaire.m, caption=rechercheLineaire.m]{rechercheLineaire.m}
 Implémente la recherche linéaire d'après l'algorithme 11.2. \mcode{fx} est la fonction évaluée en \mcode{x}, et \mcode{gfx} est son gradient en \mcode{x}. Nous avons choisi de les passer en paramètres pour ne pas devoir les recalculer. Mais pour plus de modularité, on peut déterminer \mcode{fx} et \mcode{gfx} en ajoutant \mcode{[fx, gfx] = feval(f, x);} avant la boucle \mcode{while}.
 
 
@@ -87,7 +89,25 @@ Quelle est la nature de ce pas? D'où cette formule vient-elle?
 % Mettre la réponse ici
 %
 
-\
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+columns/0/.style={column name=},
+columns/1/.style={column name=},
+columns/2/.style={column name=},
+columns/3/.style={column name=},
+columns/4/.style={column name=},
+columns/5/.style={column name=},
+columns/6/.style={column name=},
+columns/7/.style={column name=},
+columns/8/.style={column name=},
+columns/9/.style={column name=},
+every head row/.style={before row={\toprule \multicolumn{2}{c}{$x_0$} &
+\multicolumn{2}{c}{$x_{optim,pfp}$} & $f(x_{optim,pfp})$ & $n_{pfp}$ & \multicolumn{2}{c}{$x_{optim,qN}$} & $f(x_{optim,qN})$ & $n_{qN}$ \\
+}
+},
+every last row/.style={after row=\hline},
+]{output.csv}
 
 \end{enumerate}
 \end{document}

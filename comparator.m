@@ -20,19 +20,36 @@ fct = 'f';
 %x0 = x(randsample(x(0), 1)) % choisir ici une paire de valeurs prédéfinies dans x.m
 epsilon = 0.00001;
 
+tx01=[];
+tx02=[];
+txk1=[];
+tfxk1=[];
+titerations1=[];
+txk2=[];
+txfk2=[];
+titerations2=[];
+
 
 for i = 1:x(0)
 
     x0 = x(i)
+    tx01(i) = x0(1);
+    tx02(i) = x0(2);
     
     % Notre implémentation de pfp
-    pfp(fct, x0, epsilon, true, showDetails); % Ne marche pas, car la fonction tp appelée dans pfpInnerLoop:16
+    [txk1(i,:), tfxk1(i), titerations1(i)] = pfp(fct, x0, epsilon, true, showDetails);
+    
     if compareSteps  
-        pfp(fct, x0, epsilon, false, showDetails);
+        [txk2(i,:), txfk2(i), titerations2(i)]  = pfp(fct, x0, epsilon, false, showDetails);
     else 
         % Solution de quasi Newton
-        quasiNewton(fct, x0, showDetails);
-    end 
+        [txk2(i,:), txfk2(i), titerations2(i)]  = quasiNewton(fct, x0, showDetails);
+        
+    end
 end
+
+data = [tx01', tx02', txk1(:,1), txk1(:,2), tfxk1', titerations1', txk2(:,1), txk2(:,2), txfk2', titerations2'];
+format shortg, data;
+csvwrite('output.csv',data);
 
 clear;

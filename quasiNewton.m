@@ -8,7 +8,7 @@
 %  					                  % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-function x = quasiNewton(f, x0, showDetails)
+function [x, fx, iterations] = quasiNewton(f, x0, showDetails)
 
 %clear; % n�cessaire pour l''interface graphique
 
@@ -132,6 +132,10 @@ if showDetails
 end 
  
 % sprintf('Nombre de fois que la boucle a �t� parcourue : %d',i)                    
+
+x=xOptim;
+iterations = i-1;
+fx = feval(fct,stock(:,i));
 
 end
 
