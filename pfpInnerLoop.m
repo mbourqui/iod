@@ -10,7 +10,9 @@
 %  					                               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function x = pfpInnerLoop(f, x0, alpha, useRL)
+function x = pfpInnerLoop(f, x0, useRL)
+
+    alpha = 1;
     x = x0;
 
     [fx, gfx] = feval(f, x);
@@ -18,10 +20,11 @@ function x = pfpInnerLoop(f, x0, alpha, useRL)
     
 	% Calcul du pas
     if useRL
+        % Avec la recherche linéaire
         beta1 = 0.5;
         beta2 = 0.75;
         lambda = 2;
-        alpha = rl(f, x, fx, gfx, alpha, beta1, beta2, lambda);
+        alpha = rl(f, fx, gfx, x, alpha, beta1, beta2, lambda);
     else
         %Soit on peut utiliser la fonction dans b) pour calculer le pas
         alpha = tp(f,x);

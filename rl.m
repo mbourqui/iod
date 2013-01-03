@@ -8,7 +8,7 @@
 %                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function alpha = rl(f, x, fx, gfx, alpha0, beta1, beta2, lambda)
+function alpha = rl(f, fx, gfx, x, alpha0, beta1, beta2, lambda)
     alpha = alpha0;
     alphal = 0;
     alphar = inf;

@@ -8,7 +8,7 @@
 %  					                  % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-function x = quasiNewton(f, x0)
+function x = quasiNewton(f, x0, showDetails)
 
 %clear; % n�cessaire pour l''interface graphique
 
@@ -114,22 +114,22 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Affichage des r�sultats  %				   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-disp('Valeur de la suite des it�r�s :') ; 
-stock' 
-
+if showDetails
+    disp('Valeur de la suite des it�r�s :') ; 
+    stock' 
+end
 disp('*****************************************')
 disp(['Nombre d''it�rations :                   ' num2str(i-1)])
 disp(['Valeur de la fonction � l''optimum : ' num2str(feval(fct,x))] ) ; 
 disp('Valeur de l''optimum : ')  
 xOptim = x' 
 disp('*****************************************')
-         
-% passage au module de visualisation de la fonction et des r�sultats 
-    
-visual3d(fct, stock, valeurstock); 
      
-%clear; 
+if showDetails
+    % passage au module de visualisation de la fonction et des r�sultats 
+
+    visual3d(fct, stock, valeurstock); 
+end 
  
 % sprintf('Nombre de fois que la boucle a �t� parcourue : %d',i)                    
 

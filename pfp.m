@@ -9,7 +9,7 @@
 % SIMOND Floriant                                         %
 %                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function x = pfp(f, x0, alpha, useRL)
+function x = pfp(f, x0, epsilon, useRL, showDetails)
 
 %%%%%%%%%%%%%%%% 
 % Interface    %
@@ -26,8 +26,7 @@ x = x0;
 % Parametres     %
 %%%%%%%%%%%%%%%%%%
  
-% pour le critere d'arret 
-epsilon = 0.001 ; 
+% pour le critère d'arrêt 
 maxIter = 200   ;  
 
 % initialisation du nombre d'iterations 
@@ -45,14 +44,16 @@ stock(:,i) = x0;
 
 % Critere d'arret: x a ateint la precision demandée OU nb iterations max ateint
 
-while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i < maxIter )
+while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i <= maxIter )
 	% mise a jour du nombre d'iterations
 	i = i+1;
 	
     prev = stock(:,i-1);
-	fprintf('Iteration number %d : x = [%f, %f]\n', i, prev(1), prev(2));
+    if showDetails
+        fprintf('Iteration number %d : x = [%f, %f]\n', i, prev(1), prev(2));
+    end
 	% calcul et stockage de la valeur du nouveau x   
-	stock(:,i) = pfpInnerLoop(fct, prev, alpha, useRL);
+	stock(:,i) = pfpInnerLoop(fct, prev, useRL);
 
 end 
  
@@ -68,22 +69,23 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % Affichage des résultats  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-disp('Valeur de la suite des x :') ; 
-stock' 
-
+if showDetails
+    disp('Valeur de la suite des x :') ; 
+    stock' 
+end
 disp('*****************************************')
 disp(['Nombre d''iterations :                   ' num2str(i-1)])
 disp(['Valeur de la fonction a l''optimum : ' num2str(feval(fct,stock(:,i)))] ) ; 
 disp('Valeur de l''optimum : ')  
 xOptim = stock(:,i)' 
 disp('*****************************************')
-         
-% passage au module de visualisation de la fonction et des resultats 
-    
-visual3d(fct, stock, valeurstock);  
- 
-sprintf('Nombre de fois que la boucle a ete parcourue : %d',i)                    
+
+if showDetails
+    % passage au module de visualisation de la fonction et des resultats 
+
+    visual3d(fct, stock, valeurstock);  
+end
+%sprintf('Nombre de fois que la boucle a ete parcourue : %d',i)                    
 
 clear;
 end

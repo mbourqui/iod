@@ -53,10 +53,16 @@ Trouver (une approximation de) la solution du problème suivant en appliquant le
 % Mettre la réponse ici
 %
 \lstinputlisting[label=pfp.m, caption=pfp.m]{pfp.m}
+Pour \texttt{pfp.m}, nous avons réutilisé la structure du corrigé de la série 3. Nous l'avons adapté pour y résoudre l'algorithme de plus forte pente, selon l'algorithme 11.3. La fonction, son gradient et sa hessienne sont placés dans un fichier que nous avons nommé \texttt{f.m}. De plus, nous avons ajouté un booléan \mcode{useRL} qui permet de sélectionner la méthode de détermination du pas (recherche linéaire ou le pas calculé en (\ref{pas})).
+
 
 \lstinputlisting[label=pfpInnerLoop.m, caption=pfpInnerLoop.m]{pfpInnerLoop.m}
+Effectue une itération de l'algorithme en utilisant la méthode de calcul du pas spécifiée. Le choix est effectué à l'aide du booléen \mcode{useRL} qui permet de choisir entre la recherche linéaire et la méthode indiquée au point (\ref{pas}).
+
 
 \lstinputlisting[label=rl.m, caption=rl.m]{rl.m}
+Implémente la recherche linéaire d'après l'algorithme 11.2. \mcode{fx} est la fonction évaluée en \mcode{x}, et \mcode{gfx} est son gradient en \mcode{x}. Nous avons choisi de les passer en paramètres pour ne pas devoir les recalculer. Mais pour plus de modularité, on peut déterminer \mcode{fx} et \mcode{gfx} en ajoutant \mcode{[fx, gfx] = feval(f, x);} avant la boucle \mcode{while}.
+
 
 \item\label{pas} Implémenter une fonction qui donne la taille du pas suivant:
 \begin{equation}
