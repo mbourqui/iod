@@ -43,13 +43,17 @@ for i = 1:x(0)
         [txk2(i,:), txfk2(i), titerations2(i)]  = pfp(fct, x0, epsilon, false, showDetails);
     else 
         % Solution de quasi Newton
-        [txk2(i,:), txfk2(i), titerations2(i)]  = quasiNewton(fct, x0, showDetails);
-        
+        [txk2(i,:), txfk2(i), titerations2(i)]  = quasiNewton(fct, x0, showDetails); 
     end
 end
 
 data = [tx01', tx02', txk1(:,1), txk1(:,2), tfxk1', titerations1', txk2(:,1), txk2(:,2), txfk2', titerations2'];
 format shortg, data;
-csvwrite('output.csv',data);
+if compareSteps  
+        csvwrite('compareSteps.csv',data);
+    else 
+        csvwrite('compareMethods.csv',data);
+    end
+
 
 clear;
