@@ -14,7 +14,7 @@ clear;
 
 % Valeurs initiales
 fct = 'f';
-x0 = x(randsample(x(0),1)) % choisir ici une paire de valeurs prédéfinies dans x.m
+x0 = x(randsample(x(0), 1)) % choisir ici une paire de valeurs prédéfinies dans x.m
 
 % Notre implémentation de pfp
 pfp(fct, x0, 1, true); % Ne marche pas, car la fonction tp appelée dans pfpInnerLoop:16
