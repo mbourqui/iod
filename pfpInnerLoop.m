@@ -24,7 +24,7 @@ function x = pfpInnerLoop(f, x0, useRL)
         beta1 = 0.5;
         beta2 = 0.75;
         lambda = 2;
-        alpha = recherchelineaire(f, fx, gfx, x, alpha, beta1, beta2, lambda);
+        alpha = rechercheLineaire(f, fx, gfx, x, alpha, beta1, beta2, lambda);
     else
         %Soit on peut utiliser la fonction dans b) pour calculer le pas
         alpha = taillepas_cauchy(f,x);
