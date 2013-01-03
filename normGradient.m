@@ -1,4 +1,4 @@
-﻿
+
 % Cette fonction calcule la norme du gradient
 
 function valueNG = normGradient(fonc,xcurrent)
