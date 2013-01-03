@@ -2,17 +2,17 @@
 %                                                         %
 % Methodes de descente pour l'optimisation non lineaire   %
 % sans contraintes                                        %
-% 					                                      %
+%                                                         %
 % BOURQUI Marc                                            %
 % CONSTANTIN Victor                                       %
 % SCHORI Ian                                              %
 % SIMOND Floriant                                         %
-%  					                                      %
+%                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function x = pfp(f, x0, alpha, useRL)
 
 %%%%%%%%%%%%%%%% 
-% Interface    %	         		
+% Interface    %
 %%%%%%%%%%%%%%%%
  
 % nom de la fonction a minimiser, qui est specifiee dans le fichier 'f.m'  
@@ -23,7 +23,7 @@ fct = f;
 x = x0;
  
 %%%%%%%%%%%%%%%%%%
-% Parametres     %		   
+% Parametres     %
 %%%%%%%%%%%%%%%%%%
  
 % pour le critere d'arret 
@@ -65,7 +65,7 @@ end
      
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% Affichage des résultats  %				   
+% Affichage des résultats  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 disp('Valeur de la suite des x :') ; 
