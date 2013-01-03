@@ -6,7 +6,7 @@
 % noms				          % 
 %  					                                      % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-function x = pfp_launcher(f, x0, alpha)
+function x = pfp(f, x0, alpha)
  
 %clear; % necessaire pour l''interface graphique
  
