@@ -6,10 +6,12 @@
 % noms				          % 
 %  					                                      % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-function x = pfp(f, x0, alpha)
+function x = pfp(f, x0, alpha, useRL)
  
 %clear; % necessaire pour l''interface graphique
- 
+
+useRLInner = useRL;
+
 %%%%%%%%%%%%%%%% 
 % Interface    %	         		
 %%%%%%%%%%%%%%%%
@@ -20,7 +22,7 @@ function x = pfp(f, x0, alpha)
 fct = f;
  
 % point initial 
-x = x0
+x = x0;
  
 %%%%%%%%%%%%%%%%%%
 % Parametres     %		   
@@ -50,7 +52,7 @@ while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i < maxiter )
 	i = i+1; 
 
 	% clacul et stockage de la valeur du nouveau x   
-	stock(:,i) = pfpInnerLoop(fct, stock(:,i-1), alpha);
+	stock(:,i) = pfpInnerLoop(fct, stock(:,i-1), useRLInner);
 
 end 
  
