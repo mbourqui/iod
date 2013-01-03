@@ -1,9 +1,9 @@
-function taillePas = tp(f, x)
+function pas = taillepas_cauchy(f, x)
     [~, fgx, fghx] = feval(f,x);
     top = fgx' * fgx;
     bottom = fgx' * fghx * fgx;
     
-    taillePas = top / bottom;
+    pas = top / bottom;
    
     %Cette formule est le point de Cauchy,
     %Elle vient du modèle quadratique.
