@@ -3,12 +3,14 @@
 % Methodes de descente pour l'optimisation non lineaire   %              
 % sans contraintes                                        %              
 % 					                                      % 
-% noms				          % 
+% BOURQUI Marc                                            %
+% CONSTANTIN Victor                                       %
+% SCHORI Ian                                              %
+% SIMOND Floriant                                         %
 %  					                                      % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 function x = pfp(f, x0, alpha, useRL)
  
-%clear; % necessaire pour l''interface graphique
 
 useRLInner = useRL;
 
@@ -18,7 +20,6 @@ useRLInner = useRL;
  
 % nom de la fonction a minimiser, qui est specifiee dans le fichier 'f.m'  
 % et qui est declaree sous forme de string
-%fct = 'f' ; 
 fct = f;
  
 % point initial 
@@ -30,18 +31,18 @@ x = x0;
  
 % pour le critere d'arret 
 epsilon = 0.001 ; 
-maxiter = 200   ;  
- 
+maxIter = 200   ;  
+
 % initialisation du nombre d'iterations 
 i=1 ;  
  
-% initialisation de la matrice qui stocke tous les itererations 
-% une itereration=une colonne de cette matrice
+% initialisation de la matrice qui stocke tous les iterés 
+% un iteré = une colonne de cette matrice
 
 stock(:,1) = x0; 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% Boucle principale 
+% Boucle principale            % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
  
 
@@ -49,9 +50,9 @@ stock(:,1) = x0;
 
 while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i < maxiter )
 	% mise a jour du nombre d'iterations
-	i = i+1; 
+	i = i+1;
 
-	% clacul et stockage de la valeur du nouveau x   
+	% calcul et stockage de la valeur du nouveau x   
 	stock(:,i) = pfpInnerLoop(fct, stock(:,i-1), useRLInner);
 
 end 
@@ -87,5 +88,3 @@ sprintf('Nombre de fois que la boucle a ete parcourue : %d',i)
 
 clear;
 end
-
-
