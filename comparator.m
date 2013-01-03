@@ -15,7 +15,7 @@ x(0)
 x0 = x(randsample(x(0),1)) % choisir ici une paire de valeurs prédéfinies dans x.m
 
 % Notre implémentation de pfp
-%pfp_launcher(fct, x0, 1); % Ne marche pas, car la fonction tp appelée dans pfp:16
+%pfp(fct, x0, 1); % Ne marche pas, car la fonction tp appelée dans pfpInnerLoop:16
 %manque.
 
 % Solution de quasi Newton
