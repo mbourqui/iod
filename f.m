@@ -1,4 +1,4 @@
-﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     	        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     	        
 %                                                           %
 % Implémete la fonction a minimiser et fournit son gradiant %              
 % et sa matrice hessienne                                   %              

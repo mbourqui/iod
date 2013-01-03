@@ -1,4 +1,4 @@
-﻿function [ x ] = x( row )
+function [ x ] = x( row )
 %x : Donne un vecteur x à deux dimensions. Indice 0 donne le nombre de paires
 % disponibles.
 
