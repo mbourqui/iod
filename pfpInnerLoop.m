@@ -1,8 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                            %
 % Calcul d'un itéré et du pas soit en utilisant la recherche %
-% linéaire soit la formule de Cauchy                         %
-% sans contraintes                                           %           
+% linéaire soit la formule de Cauchy                         %        
 % 					                                         %
 % BOURQUI Marc                                               %
 % CONSTANTIN Victor                                          %
