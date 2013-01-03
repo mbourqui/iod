@@ -21,7 +21,7 @@ x=[1 1];
 j=1;
 i=1;
 
-[X,Y]=meshgrid(-3:.2:3,-3:.2:3);
+[X,Y]=meshgrid(-80:2:120,-110:2:90);
 
 % calcul de la taille de [X,Y]
 [m,n] = size([X,Y]);

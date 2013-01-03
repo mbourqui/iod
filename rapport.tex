@@ -35,6 +35,8 @@ inputencoding=utf8/latin1
 
 
 
+
+
 \begin{document}
 
 \maketitle
@@ -66,8 +68,14 @@ Effectue une itération de l'algorithme en utilisant la méthode de calcul du pa
 Implémente la recherche linéaire d'après l'algorithme 11.2. \mcode{fx} est la fonction évaluée en \mcode{x}, et \mcode{gfx} est son gradient en \mcode{x}. Nous avons choisi de les passer en paramètres pour ne pas devoir les recalculer. Mais pour plus de modularité, on peut déterminer \mcode{fx} et \mcode{gfx} en ajoutant \mcode{[fx, gfx] = feval(f, x);} avant la boucle \mcode{while}.
 
 
+
+%
+%
+%
+
+
 \item\label{pas} Implémenter une fonction qui donne la taille du pas suivant:
-\begin{equation}
+\begin{equation}\label{eq:cauchy}
 \alpha_k = \frac{\bigtriangledown f(x_k)^T \bigtriangledown f(x_k)}{\bigtriangledown f(x_k)^T \bigtriangledown^2 f(x_k) \bigtriangledown f(x_k)}
 \end{equation}
 
@@ -77,11 +85,55 @@ Quelle est la nature de ce pas? D'où cette formule vient-elle?
 % Mettre la réponse ici
 %
 
+\lstinputlisting[label=taillepasCauchy.m, caption=taillepasCauchy.m]{taillepasCauchy.m}
+
+   
+%Cette formule est le point de Cauchy. Elle vient du modèle quadratique. C'est le point qui minimise le modèle quadratique de la fonction dans la direction de la plus forte descente.
+$f$ n'est pas une fonction linéaire, on peut l'approximer par un modèle quadratique.
+On va chercher à miniser ce modèle dans la direction de la plus forte descente. Le point qui minimise ce modèle est le point de Cauchy qui se détermine de la manière suivante~:
+\begin{equation}
+x_C = x_k - \alpha_C \bigtriangledown f(x_k)
+\end{equation}
+où
+\begin{equation}
+\alpha_C = \underset{\alpha \in \mathbb{R}^+_0}{\operatorname{argmin}}\ m_{x_k}(x_k-\alpha\bigtriangledown f(x_k))
+\end{equation}
+Sachant $f$ convexe, $\alpha_c$ peut être calculé par \eqref{eq:cauchy}.
+
+
+
+
+%
+%
+%
+
 \item Comparer le comportement de l'algorithme en utilisant les pas (\ref{pfp})\ et (\ref{pas}).
 
 %
 % Mettre la réponse ici
 %
+
+\pgfplotstabletypeset[
+col sep=comma,
+string type,
+columns/0/.style={column name=},
+columns/1/.style={column name=},
+columns/2/.style={column name=},
+columns/3/.style={column name=},
+columns/4/.style={column name=},
+columns/5/.style={column name=},
+columns/6/.style={column name=},
+columns/7/.style={column name=},
+columns/8/.style={column name=},
+columns/9/.style={column name=},
+columns/10/.style={column name=},
+every head row/.style={before row={\toprule $k$ & \multicolumn{2}{c}{$x_0$} & \multicolumn{2}{c}{$x_{optim,pfp}$} & $f(x_{optim,pfp})$ & $n_{pfp}$ & \multicolumn{2}{c}{$x_{optim,qN}$} & $f(x_{optim,qN})$ & $n_{qN}$ \\
+}
+},
+every last row/.style={after row=\hline},
+%every first column/.style={column type/.add={>{\makebox[3em][l]{\arabic{myCounter}\stepcounter{myCounter}~}}}{} }
+]{compareMethods.csv}
+
 
 \item Comparer la methode de plus forte pente et la methode quasi-Newton (qui est déjà implementée -- Série 3).
 
@@ -102,12 +154,14 @@ columns/6/.style={column name=},
 columns/7/.style={column name=},
 columns/8/.style={column name=},
 columns/9/.style={column name=},
-every head row/.style={before row={\toprule \multicolumn{2}{c}{$x_0$} &
-\multicolumn{2}{c}{$x_{optim,pfp}$} & $f(x_{optim,pfp})$ & $n_{pfp}$ & \multicolumn{2}{c}{$x_{optim,qN}$} & $f(x_{optim,qN})$ & $n_{qN}$ \\
+columns/10/.style={column name=},
+every head row/.style={before row={\toprule $k$ & \multicolumn{2}{c}{$x_0$} & \multicolumn{2}{c}{$x_{optim,pfp}$} & $f(x_{optim,pfp})$ & $n_{pfp}$ & \multicolumn{2}{c}{$x_{optim,qN}$} & $f(x_{optim,qN})$ & $n_{qN}$ \\
 }
 },
 every last row/.style={after row=\hline},
+%every first column/.style={column type/.add={>{\makebox[3em][l]{\arabic{myCounter}\stepcounter{myCounter}~}}}{} }
 ]{compareSteps.csv}
 
+D'une manière générale, la méthode de la plus forte pente est plus efficace que la méthode de quasi-Newton lorsque la distance entre le point de départ et la solution est petite.
 \end{enumerate}
 \end{document}
