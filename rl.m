@@ -1,4 +1,15 @@
-function alpha = rl(f, x, fx, gfx, alpha0, beta1, beta2, lambda)
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                         %
+% Implémente la recherche linéaire                        %
+% 					                                      %
+% BOURQUI Marc                                            %
+% CONSTANTIN Victor                                       %
+% SCHORI Ian                                              %
+% SIMOND Floriant                                         %
+%  					                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function alpha = rl(f, x, d, alpha0, beta1, beta2, lambda)
     alpha = alpha0;
     alphal = 0;
     alphar = inf;

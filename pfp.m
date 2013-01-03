@@ -1,18 +1,15 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     	        
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                         %
-% Methodes de descente pour l'optimisation non lineaire   %              
-% sans contraintes                                        %              
-% 					                                      % 
+% Methodes de descente pour l'optimisation non lineaire   %
+% sans contraintes                                        %
+% 					                                      %
 % BOURQUI Marc                                            %
 % CONSTANTIN Victor                                       %
 % SCHORI Ian                                              %
 % SIMOND Floriant                                         %
-%  					                                      % 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%  					                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function x = pfp(f, x0, alpha, useRL)
-
-
-useRLInner = useRL;
 
 %%%%%%%%%%%%%%%% 
 % Interface    %	         		
@@ -51,9 +48,10 @@ stock(:,i) = x0;
 while ( normGradient(fct,stock(:,i)) >= epsilon ) && ( i < maxIter )
 	% mise a jour du nombre d'iterations
 	i = i+1;
-
+	
+	fprintf('Iteration number %d : x = [%f, %f]\n', i, stock(:,i-1)(1), stock(:,i-1)(2));
 	% calcul et stockage de la valeur du nouveau x   
-	stock(:,i) = pfpInnerLoop(fct, stock(:,i-1), useRLInner);
+	stock(:,i) = pfpInnerLoop(fct, stock(:,i-1), alpha, useRL);
 
 end 
  
