@@ -1,14 +1,14 @@
-﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                            %
-% Calcul d'un itéré et du pas soit en utilisant la recherche %
-% linéaire soit la formule de Cauchy                         %        
-% 					                                         %
-% BOURQUI Marc                                               %
-% CONSTANTIN Victor                                          %
-% SCHORI Ian                                                 %
-% SIMOND Floriant                                            %
-%  					                                         %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                  %
+% Calcul d'un itéré et du pas soit en utilisant    %
+% la recherche linéaire soit la formule de Cauchy  %        
+% 					                               %
+% BOURQUI Marc                                     %
+% CONSTANTIN Victor                                %
+% SCHORI Ian                                       %
+% SIMOND Floriant                                  %
+%  					                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function x = pfpInnerLoop(f, x0, alpha, useRL)
     x = x0;
