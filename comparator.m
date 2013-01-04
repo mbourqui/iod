@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Compare les deux méthodes pour un jeu de données commun.		%
-%																%
-%																%
-% BOURQUI Marc													%	
-% CONSTANTIN Victor												%
+% Compare les deux méthodes pour un jeu de données commun.      %
+%                                                               %
+%                                                               %
+% BOURQUI Marc                                                  %
+% CONSTANTIN Victor                                             %
 % SCHORI Ian                                                    %
 % SIMOND Floriant                                               %
 %                                                               %
@@ -12,9 +12,9 @@
 clear;
 
 % Configuration
-showDetails = false;
-drawPlots = false;
-compareSteps = false;
+showDetails = false; % Utilisé pour afficher ou non les détails (chaque xk de chaque itération) pour chaque méthode
+drawPlots = false; % Utilisé pour dessiner ou non les graphs des comparaisons
+compareSteps = false; % Utilisé pour comparer soit pfp/rl avec pfp/cauchy soit pfp/rl et qN
 maxValues = 0 % 0 pour utiliser x.m, 1 pour un x aléatoire, >1 pour x snake
 
 % Valeurs initiales
@@ -33,14 +33,13 @@ titerations1=[];
 txk2=[];
 txfk2=[];
 titerations2=[];
+distance = [];
 
 if maxValues > 0
     max = maxValues;
 else
     max = x(0);
 end
-
-distance = [];
 
 if maxValues > 1
     xs = xsnake(solution, max, 1);
@@ -63,10 +62,11 @@ for i = 1:max
         tx01(i) = x0(1);
         tx02(i) = x0(2);
 
-        % Notre implémentation de pfp
+        % Notre implémentation de pfp avec la recherche linéaire
         [txk1(i,:), tfxk1(i), titerations1(i)] = pfp(fct, x0, epsilon, true, showDetails);
 
         if compareSteps
+			% Notre implémentation de pfp avec le pas de Cauchy
             [txk2(i,:), txfk2(i), titerations2(i)]  = pfp(fct, x0, epsilon, false, showDetails);
             legend2 = 'Plus forte pente avec le pas de Cauchy';
         else 
@@ -82,8 +82,9 @@ for i = 1:max
     end
 end
 
+% Tableau contenant les données
 data = [counter', tx01', tx02', txk1(:,1), txk1(:,2), tfxk1', titerations1', txk2(:,1), txk2(:,2), txfk2', titerations2'];
-format shortg, data;
+format shortg, data; % Afin que les données soit pas au format scientifique
 
 % Export des valeurs
 if compareSteps
@@ -107,7 +108,6 @@ if drawPlots
     pause;
     close;
 end
-
 
 if drawPlots
     for i=1:4

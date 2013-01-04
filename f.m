@@ -1,14 +1,14 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%     	        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                           %
-% Implémete la fonction a minimiser et fournit son gradiant %              
-% et sa matrice hessienne                                   %              
-% 					                                        % 
+% Implémete la fonction a minimiser et fournit son gradiant %
+% et sa matrice hessienne                                   %
+%                                                           %
 % BOURQUI Marc                                              %
 % CONSTANTIN Victor                                         %
 % SCHORI Ian                                                %
 % SIMOND Floriant                                           %
-%  					                                        % 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%                                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [f, g, h] = f(x)
 

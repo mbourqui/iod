@@ -1,6 +1,4 @@
-function [ x ] = xsnake( solution, max, coef )
-%XSNAKE Summary of this function goes here
-%   Detailed explanation goes here
+function [ x ] = xsnake( solution, max, coef)
 
 increment = 1;
 

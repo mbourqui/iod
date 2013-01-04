@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Implémente la recherche linéaire %
-% 					               %
+%                                  %
 % BOURQUI Marc                     %
 % CONSTANTIN Victor                %
 % SCHORI Ian                       %
