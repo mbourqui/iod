@@ -1,11 +1,11 @@
-function [ x ] = xsnake( max, coef, elem )
+function [ x ] = xsnake( solution, max, coef )
 %XSNAKE Summary of this function goes here
 %   Detailed explanation goes here
 
 increment = 1;
 
-m(1,1) = 0;
-m(1,2) = 0;
+m(1,1) = solution(1);
+m(1,2) = solution(2);
 
 c = 2;
 
@@ -24,7 +24,7 @@ for i = 2:(max/2)+1
     increment=increment+1;
 end
 
-x=m(elem,:)';
+x=m
 
 end
 
