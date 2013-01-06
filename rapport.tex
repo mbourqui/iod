@@ -25,6 +25,11 @@
 
 \newcommand{\qn}{quasi-Newton}
 \newcommand{\pfp}{plus forte pente}
+\newcommand{\txtoptim}{\text{optim}}
+\newcommand{\txtpfp}{\text{pfp}}
+\newcommand{\txtcauchy}{\text{cauchy}}
+\newcommand{\txtrchlin}{\text{rch lin}}
+\newcommand{\txtqn}{\text{qN}}
 
 \title{Résolution d'un problème d'optimisation différentiable}
 \author{Marc \textsc{Bourqui} \and Victor \textsc{Constantin} \and Ian \textsc{Schori} \and Floriant \textsc{Simond}}
@@ -61,7 +66,8 @@ inputencoding=utf8/latin1
 
 \begin{document}
 
-\maketitle
+%\maketitle
+\input{./inputs/title.tex}
 
 \section*{Énoncé du problème}
 
@@ -154,7 +160,7 @@ columns/7/.style={column name=},
 columns/8/.style={column name=},
 columns/9/.style={column name=},
 columns/10/.style={column name=},
-every head row/.style={before row={\toprule $k$ & \multicolumn{2}{c}{$x_0$} & \multicolumn{2}{c}{$x_{optim,rch lin}$} & $f(x_{optim,rch lin})$ & $n_{rch lin}$ & \multicolumn{2}{c}{$x_{optim,cauchy}$} & $f(x_{optim,cauchy})$ & $n_{cauchy}$ \\
+every head row/.style={before row={\toprule $k$ & \multicolumn{2}{c}{$x_0$} & \multicolumn{2}{c}{$x_{\txtoptim,\txtrchlin}$} & $f(x_{\txtoptim,\txtrchlin})$ & $n_{\txtrchlin}$ & \multicolumn{2}{c}{$x_{\txtoptim,\txtcauchy}$} & $f(x_{\txtoptim,\txtcauchy})$ & $n_{\txtcauchy}$ \\
 }
 },
 every last row/.style={after row=\hline},
@@ -248,7 +254,7 @@ columns/7/.style={column name=},
 columns/8/.style={column name=},
 columns/9/.style={column name=},
 columns/10/.style={column name=},
-every head row/.style={before row={\toprule $k$ & \multicolumn{2}{c}{$x_0$} & \multicolumn{2}{c}{$x_{optim,pfp}$} & $f(x_{optim,pfp})$ & $n_{pfp}$ & \multicolumn{2}{c}{$x_{optim,qN}$} & $f(x_{optim,qN})$ & $n_{qN}$ \\
+every head row/.style={before row={\toprule $k$ & \multicolumn{2}{c}{$x_0$} & \multicolumn{2}{c}{$x_{\txtoptim,\txtpfp}$} & $f(x_{\txtoptim,\txtpfp})$ & $n_{\txtpfp}$ & \multicolumn{2}{c}{$x_{\txtoptim,\txtqn}$} & $f(x_{\txtoptim,\txtqn})$ & $n_{\txtqn}$ \\
 }
 },
 every last row/.style={after row=\hline},
