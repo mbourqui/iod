@@ -31,6 +31,8 @@
 \newcommand{\txtrchlin}{\text{rch lin}}
 \newcommand{\txtqn}{\text{qN}}
 
+\newcommand{\question}[1]{\textbf{#1}}
+
 \title{Résolution d'un problème d'optimisation différentiable}
 \author{Marc \textsc{Bourqui} \and Victor \textsc{Constantin} \and Ian \textsc{Schori} \and Floriant \textsc{Simond}}
 
@@ -79,7 +81,7 @@ Trouver (une approximation de) la solution du problème suivant en appliquant le
 \section*{Réponses aux questions}
 
 \begin{enumerate}[(a)]
-\item\label{pfp} Implémenter la méthode de plus forte pente (Algorithme 11.3) à l'aide du logiciel MATLAB. Déterminer la taille du pas en appliquant la recherche linéaire, Algorithme 11.2 (les deux conditions de Wolfe).
+\item\label{pfp} \question{Implémenter la méthode de plus forte pente (Algorithme 11.3) à l'aide du logiciel MATLAB. Déterminer la taille du pas en appliquant la recherche linéaire, Algorithme 11.2 (les deux conditions de Wolfe).}
 
 %
 % Mettre la réponse ici
@@ -101,12 +103,12 @@ Cette fonction implémente la recherche linéaire d'après l'algorithme 11.2. Le
 %
 %
 
-\item\label{pas} Implémenter une fonction qui donne la taille du pas suivant:
+\item\label{pas} \question{Implémenter une fonction qui donne la taille du pas suivant~:}
 \begin{equation}\label{eq:cauchy}
 \alpha_k = \frac{\bigtriangledown f(x_k)^T \bigtriangledown f(x_k)}{\bigtriangledown f(x_k)^T \bigtriangledown^2 f(x_k) \bigtriangledown f(x_k)}
 \end{equation}
 
-Quelle est la nature de ce pas? D'où cette formule vient-elle?
+\question{Quelle est la nature de ce pas? D'où cette formule vient-elle?}
 
 %
 % Mettre la réponse ici
@@ -134,7 +136,7 @@ Sachant $f$ convexe, $\alpha_C$ peut être calculé par \eqref{eq:cauchy}.
 %
 %
 
-\item\label{questionC} Comparer le comportement de l'algorithme en utilisant les pas (\ref{pfp})\ et (\ref{pas}).
+\item\label{questionC} \question{Comparer le comportement de l'algorithme en utilisant les pas (\ref{pfp})\ et (\ref{pas}).}
 
 %
 % Mettre la réponse ici
@@ -233,7 +235,7 @@ On notera aussi que l'algorithme utilisant le pas de Cauchy change de comporteme
 %
 
 
-\item\label{questionD} Comparer la methode de plus forte pente et la methode quasi-Newton (qui est déjà implementée -- Série 3).
+\item\label{questionD} \question{Comparer la methode de plus forte pente et la methode quasi-Newton (qui est déjà implementée -- Série 3).}
 
 %
 % Mettre la réponse ici
