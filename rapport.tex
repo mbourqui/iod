@@ -50,22 +50,6 @@ inputencoding=utf8/latin1
 
 
 
-
-
-
-
-% TODO
-%
-% - mettre à jour les références, titres, labels, caption, etc.
-% - logo EPFL première page
-%
-%
-
-
-
-
-
-
 \begin{document}
 
 %\maketitle
@@ -87,7 +71,7 @@ Trouver (une approximation de) la solution du problème suivant en appliquant le
 % Mettre la réponse ici
 %
 \lstinputlisting[label=pfp.m, caption=pfp.m]{pfp.m}
-Pour \texttt{pfp.m}, nous avons réutilisé la structure du corrigé de la série 3. Nous l'avons adapté pour y résoudre la màthode de la plus forte pente, selon l'algorithme 11.3. La fonction, son gradient et sa hessienne sont placés dans un fichier que nous avons nommé \texttt{f.m}. De plus, nous avons ajouté un booléan \mcode{useRL} qui permet de sélectionner la méthode de détermination du pas (\mcode{true}~: recherche linéaire, \mcode{false}~: le pas calculé en (\ref{pas})).
+Pour \texttt{pfp.m}, nous avons réutilisé la structure du corrigé de la série 3. Nous l'avons adapté pour y résoudre la méthode de la plus forte pente, selon l'algorithme 11.3. La fonction, son gradient et sa hessienne sont placés dans un fichier que nous avons nommé \texttt{f.m}. De plus, nous avons ajouté un booléan \mcode{useRL} qui permet de sélectionner la méthode de détermination du pas (\mcode{true}~: recherche linéaire, \mcode{false}~: le pas calculé en (\ref{pas})). Si nous trouvons pas la solution au bout de 200 itérations nous arrêtons le calcul.
 
 
 \lstinputlisting[label=pfpInnerLoop.m, caption=pfpInnerLoop.m]{pfpInnerLoop.m}
@@ -119,7 +103,7 @@ Cette fonction implémente la recherche linéaire d'après l'algorithme 11.2. Le
    
 %Cette formule est le point de Cauchy. Elle vient du modèle quadratique. C'est le point qui minimise le modèle quadratique de la fonction dans la direction de la plus forte descente.
 Comme $f$ n'est pas une fonction linéaire, on peut l'approximer par un modèle quadratique.
-On va chercher à miniser ce modèle dans la direction de la plus forte descente, à savoir $\bigtriangledown f$. Le point qui minimise ce modèle est le point de Cauchy et se détermine de la manière suivante~:
+On va chercher à minimiser ce modèle dans la direction de la plus forte descente, à savoir $\bigtriangledown f$. Le point qui minimise ce modèle est le point de Cauchy et se détermine de la manière suivante~:
 \begin{equation}
 x_C = x_k - \alpha_C \bigtriangledown f(x_k)
 \end{equation}
@@ -145,7 +129,7 @@ Pour comparer ces deux méthodes, nous avons choisi d'utiliser comme critère le
 
 Pour pouvoir repondre aux questions \ref{questionC}\ et \ref{questionD}\ nous avons créé un fichier MatLab, \texttt{comparator.m}, qui nous permet de lancer deux méthodes l'une après l'autre et qui enregistre les résultats. Il génère aussi un tableau contenant le nombre d'itérations pour chaque méthode et des graph, ceci dans le but de nous faciliter la comparaison.
 
-Afin de comparer les pas, il faut mettre \mcode{compareSteps = true} dans \texttt{compartor.m}. Pour générer le tableau \ref{t1} , nous avons défini arbitrairement 10 vecteurs \mcode{x} dans le fichier \texttt{x.m}.
+Afin de comparer les pas, il faut mettre \mcode{compareSteps = true} dans \texttt{compartor.m}. Pour générer le tableau \ref{t1} , nous avons défini arbitrairement 10 vecteurs \mcode{x} dans le fichier \texttt{x.m}. Chaque ligne du tableau contient $x_0$ qui est le point initial, le point optimal $x_{optim}$ trouvé avec chaque méthode, la valeur de la fonction en ce point, ainsi que le nombre d'itérations qu'il a fallu à chaque méthode pour trouver la solution. On peut remarquer qu'à l'avant dernière ligne la méthode de la plus forte pente n'arrive pas à trouver la solution au bout de 200 itérations.
 
 \begin{figure}
 \pgfplotstabletypeset[
@@ -185,7 +169,7 @@ Dans la figure \ref{rlVSqn}\ nous avons un premier graph avec 500 valeurs.
 %\noindent\makebox[0.9\textwidth]{\includegraphics[width=1.3\textwidth]{steps-allinone}\label{fig:awesome_image}}
 
 
-Ce graphique n'est pas très explicite, mais on observe tout de même la tendance générale de la méthode de plus forte pente avec la recherche linéaire qui nécessite beaucoup d'itérations lorsque la distance à la solution est grande. L'utilisation du pas de Cauchy permet d'améliorer grandement l'efficaticité de l'algorithme, en particulier pour de grandes distances. Toutefois, on remarque deux tendances, dont l'une tend à être inefficace tandis que l'autre reste efficace.
+Ce graphique n'est pas très explicite, mais on observe tout de même la tendance générale de la méthode de plus forte pente avec la recherche linéaire qui nécessite beaucoup d'itérations lorsque la distance entre le point initial et la solution est grande. L'utilisation du pas de Cauchy permet d'améliorer grandement l'efficaticité de l'algorithme, en particulier pour de grandes distances. Toutefois, on remarque deux tendances, dont l'une tend à être inefficace tandis que l'autre reste efficace.
 
 
 
@@ -196,7 +180,7 @@ Nous avons séparé les résultats selon les différences de coordonnées du poi
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.4]{steps-quarter-4}
-		\caption{-x +y}
+		\caption{$-x_1$ $+x_2$}
 		\label{fig:rlVSqnQ4}
 	\end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
@@ -204,14 +188,14 @@ Nous avons séparé les résultats selon les différences de coordonnées du poi
     \begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.4]{steps-quarter-3}
-		\caption{+x +y}
+		\caption{$+x_1$ $+x_2$}
 		\label{fig:fig:rlVSqnQ3}
 	\end{subfigure}
 
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.4]{steps-quarter-1}
-		\caption{-x -y}
+		\caption{$-x_1$ $-x_2$}
 		\label{fig:fig:rlVSqnQ1}
 	\end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
@@ -219,7 +203,7 @@ Nous avons séparé les résultats selon les différences de coordonnées du poi
     \begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.4]{steps-quarter-2}
-		\caption{+x -y}
+		\caption{$+x_1$ $-x_2$}
 		\label{fig:fig:rlVSqnQ2}
 	\end{subfigure}
     \caption{Graphs comparaison recherche linéaire vs. Cauchy par quadrant}\label{fig:steps-4}
@@ -291,7 +275,7 @@ Pour distinguer plus clairement ces différences, nous avons séparé les résul
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.4]{methods-quarter-4}
-		\caption{-x +y}
+		\caption{$-x_1$ $+x_2$}
 		\label{fig:awesome_image}
 	\end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
@@ -299,14 +283,14 @@ Pour distinguer plus clairement ces différences, nous avons séparé les résul
     \begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.4]{methods-quarter-3}
-		\caption{+x +y}
+		\caption{$+x_1$ $+x_2$}
 		\label{fig:awesome_image}
 	\end{subfigure}
 
 	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.4]{methods-quarter-1}
-		\caption{-x -y}
+		\caption{$-x_1$ $-x_2$}
 		\label{fig:awesome_image}
 	\end{subfigure}%
         ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
@@ -314,16 +298,16 @@ Pour distinguer plus clairement ces différences, nous avons séparé les résul
     \begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.4]{methods-quarter-2}
-		\caption{+x -y}
+		\caption{$+x_1$ $-x_2$}
 		\label{fig:awesome_image}
 	\end{subfigure}
     \caption{Graphs comparaison plus forte pente vs. Quasi-Newton par quadrant}\label{fig:methods-4}
 \end{figure}
 
 
-On remarque que lorsque l'on s'éloigne de la solution en augmentant y, la méthode de \pfp\ est plus appropriée à proximité de la solution. Mais à partir d'une distance à la solution de 40 environ, la méthode de \qn\ devient plus performante.
+On remarque que lorsque l'on s'éloigne de la solution en augmentant $x_2$, la méthode de \pfp\ est plus appropriée à proximité de la solution. Mais à partir d'une distance à la solution de 40 environ, la méthode de \qn\ devient plus performante.
 
-Par contre, lorsque l'on s'éloigne selon $-y$, la méthode de \pfp\ est quasiment constamment plus inefficace.
+Par contre, lorsque l'on s'éloigne selon $-x_2$, la méthode de \pfp\ est quasiment tout le temps plus inefficace.
 
 La méthode de \qn\ semble se stabiliser assez rapidement et le nombre d'itérations augmente très légérement. Alors que la méthode de \pfp\ donne des résultats aléatoires.
 
